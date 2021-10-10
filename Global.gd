@@ -1,6 +1,8 @@
 extends Node
 
 var score = 0
+var camera = null
+
 signal changed
 var scores = {
 	0:0,
@@ -22,3 +24,7 @@ func _unhandled_input(event):
 func change_score(s):
 	score += s
 	emit_signal("changed")
+	if camera == null:
+		camera = get_node_or_null("/root/Game/Camera")
+	if camera != null:
+		camera.add_trauma(s/20.0)
