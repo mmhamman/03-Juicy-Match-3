@@ -54,7 +54,7 @@ func move_piece(change):
 
 func die():
 	if Effects == null:
-		Effects = get_node_or_null("/root/Game/Effects")
+		Effects = get_node_or_null("//root/Game/Effects")
 	if Effects != null:
 		get_parent().remove_child(self)
 		Effects.add_child(self)
@@ -75,7 +75,7 @@ func die():
 
 func _on_Timer_timeout():
 	if Effects == null:
-		Effects = get_node_or_null("/root/Game/Effects")
+		Effects = get_node_or_null("//root/Game/Effects")
 	if Effects != null:
 		var explosion = Explosion.instance()
 		explosion.position = position
